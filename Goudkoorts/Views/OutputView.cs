@@ -6,6 +6,8 @@ namespace Goudkoorts.Views
 {
     public class OutputView
     {
+        private ComparingConsoleWriter _gameWriter = new ComparingConsoleWriter();
+        
         public void DrawMenu()
         {
             var stringBuilder = new StringBuilder();
@@ -23,11 +25,16 @@ namespace Goudkoorts.Views
 
         public void DrawGame(Game game)
         {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"Game score = {game.Score}");
+            var score = game.Score.ToString().PadLeft(5, '0');
             
-            Console.Clear();
-            Console.WriteLine(stringBuilder.ToString());
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine( "╔═════════════════════════════╗");
+            stringBuilder.AppendLine($"║       Score : {score}         ║");
+            stringBuilder.AppendLine( "╚═════════════════════════════╝");
+            
+            // We don't clear, since that might be expensive to redraw everything.
+            //Console.WriteLine(stringBuilder.ToString());
+            _gameWriter.Write(stringBuilder.ToString());
         }
 
         public void DrawGameOver(int score)
@@ -37,6 +44,11 @@ namespace Goudkoorts.Views
             
             Console.Clear();
             Console.WriteLine(stringBuilder.ToString());
+        }
+
+        public void Clear()
+        {
+            Console.Clear();
         }
     }
 }

@@ -23,7 +23,8 @@ namespace Goudkoorts.Controllers
         {
             _outputView.DrawMenu();
             // TODO: Ask "press to start"
-
+            _outputView.Clear();            
+            
             _game = new Game(_intervalMilliseconds);
 
             // Connect input for switching tracks.
