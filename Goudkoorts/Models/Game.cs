@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Goudkoorts.Models.Events;
 
 namespace Goudkoorts.Models
 {
@@ -17,6 +18,8 @@ namespace Goudkoorts.Models
         private Timer _timer;
         
         private bool _isOver = false;
+        
+        public EventLogger Logger { get; } = new EventLogger(5);
 
         public int Score { get; private set; } = 0;
         
@@ -32,9 +35,9 @@ namespace Goudkoorts.Models
 
         public void SwitchTrack(int trackId)
         {
-            Console.WriteLine($"Switching track: {trackId}");
-            
             // TODO: Implement this
+            
+            Logger.Log(new TrackSwitchEvent(trackId));
         }
         
         public void Run()
@@ -58,6 +61,25 @@ namespace Goudkoorts.Models
         private void Tick(object stateInfo)
         {
             Score += 10; // TODO: Dit is example zodat we iets zien gebeuren
+
+            // TODO: Hieronder is test
+            var random = new Random();
+
+            var warehouse = '?';
+            switch (random.Next(0, 2))
+            {
+                case 0:
+                    warehouse = 'A';
+                    break;
+                case 1:
+                    warehouse = 'B';
+                    break;
+                case 2:
+                    warehouse = 'C';
+                    break;
+            }
+            
+            if (random.Next(0, 10) == 4) Logger.Log(new CartSpawnedEvent(warehouse));
             
             // TODO: Tick the game state, move carts, spawn carts, etc.
             
