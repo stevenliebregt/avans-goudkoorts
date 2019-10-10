@@ -4,7 +4,7 @@ using Goudkoorts.Views;
 
 namespace Goudkoorts.Controllers
 {
-    public class Controller : IGameObserver
+    public class Controller
     {
         private readonly InputView _inputView = new InputView();
         private readonly OutputView _outputView = new OutputView();
@@ -25,18 +25,13 @@ namespace Goudkoorts.Controllers
             
             // TODO: Setup for switching tracks
 
-            _game = new Game(this, _intervalMilliseconds);
-            _game.OnTick(_outputView.DrawGame);
+            _game = new Game(_intervalMilliseconds);
+            _game.RegisterGameTickObserver(_outputView.DrawGame);
             _game.Run(); // This runs, blocking, until the game is over.
 
             _outputView.DrawGameOver(_game.Score);
             
             // TODO: Ask "play again?"
-        }
-
-        public void OnTick()
-        {
-            _outputView.DrawGame(_game);
         }
     }
 }
