@@ -16,7 +16,8 @@ namespace Goudkoorts.Models
         
         private AutoResetEvent _autoResetEvent;
         private Timer _timer;
-        
+
+        private Field _field;
         private bool _isOver = false;
         
         public EventLogger Logger { get; } = new EventLogger(5);
@@ -44,6 +45,8 @@ namespace Goudkoorts.Models
         {
             _autoResetEvent = new AutoResetEvent(false);
             _timer = new Timer(Tick, _autoResetEvent, 0, _intervalMilliseconds);
+
+            _field = new Field();
 
             // Start the loop, and throw away the timer once it is done.
             _autoResetEvent.WaitOne();
