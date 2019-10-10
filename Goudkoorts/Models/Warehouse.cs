@@ -2,6 +2,6 @@
 {
     public class Warehouse
     {
-        
+        public Track StartTrack { get; set; }
     }
 }

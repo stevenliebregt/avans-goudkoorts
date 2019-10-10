@@ -10,7 +10,7 @@
   <Class Name="Goudkoorts.Models.Field" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAABEAACAAAAAAAAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,22 +45,36 @@
   <Class Name="Goudkoorts.Models.Track" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Track.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Models.Warehouse" Collapsed="true">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Models.Game" Collapsed="true">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQggAAAAAAAAAAAAIAgJAAAAAACAAQAI=</HashCode>
+      <HashCode>AAAAAAAAACAgQggAAAAAAAAEAAAIAgJAIAAAAKAAQAI=</HashCode>
       <FileName>Models\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.JoinSwitchTrack">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JoinSwitchTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.SplitSwitchTrack">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SplitSwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

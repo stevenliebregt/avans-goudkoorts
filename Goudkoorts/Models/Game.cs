@@ -17,7 +17,7 @@ namespace Goudkoorts.Models
         private AutoResetEvent _autoResetEvent;
         private Timer _timer;
         
-        private bool _isOver = false;
+        private readonly bool _isOver = false;
 
         
         public int Score { get; private set; } = 0;
