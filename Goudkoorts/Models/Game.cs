@@ -12,9 +12,10 @@ namespace Goudkoorts.Models
         private readonly int _intervalMilliseconds;
 
         private readonly List<Action<Game>> _gameTickObservers = new List<Action<Game>>();
-        
-        private bool _isOver = false;
+        private Field _field;
 
+        private bool _isOver = false;
+        
         public int Score { get; private set; } = 0;
         
         public Game(int intervalMilliseconds)
@@ -26,11 +27,13 @@ namespace Goudkoorts.Models
         {
             _gameTickObservers.Add(gameTickObserver);
         }
-        
+       
         public void Run()
         {
             var autoEvent = new AutoResetEvent(false);
             var timer = new Timer(Tick, autoEvent, 0, _intervalMilliseconds);
+
+            _field = new Field();
 
             // Start the loop, and throw away the timer once it is done.
             autoEvent.WaitOne();

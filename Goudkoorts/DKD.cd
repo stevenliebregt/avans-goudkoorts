@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Goudkoorts.Models.Cart" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Field" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.QuayTrack" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\QuayTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Ship" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.ShuntTrack" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ShuntTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.SwitchTrack" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SwitchTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Track" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Track.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Warehouse" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Warehouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Game" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQggAAAAAAAAAAAAIAgJAAAAAACAAQAI=</HashCode>
+      <FileName>Models\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

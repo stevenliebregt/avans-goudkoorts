@@ -2,6 +2,6 @@
 {
     public class Track
     {
-        
+        public Track Next { get; set; }
     }
 }
