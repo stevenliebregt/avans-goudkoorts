@@ -1,4 +1,6 @@
-﻿namespace Goudkoorts.Models
+﻿using System.Collections.Generic;
+
+namespace Goudkoorts.Models
 {
     public class Field
     {
