@@ -24,7 +24,18 @@ namespace Goudkoorts.Views
         public void DrawGame(Game game)
         {
             var stringBuilder = new StringBuilder();
+            
+            // Append score part. TODO: Make nicer
             stringBuilder.AppendLine($"Game score = {game.Score}");
+
+            // Append rail part.
+            // TODO:
+            
+            // Append log part. TODO: Make nicer
+            foreach (var log in game.Logger)
+            {
+                stringBuilder.AppendLine(log.ToString());
+            }
             
             Console.Clear();
             Console.WriteLine(stringBuilder.ToString());
