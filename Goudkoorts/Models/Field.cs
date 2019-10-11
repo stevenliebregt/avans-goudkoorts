@@ -61,9 +61,9 @@ namespace Goudkoorts.Models
 
             // After switchtrack nr 3 do top row
 
-            currentTrack = new Track(Orientation.BOTTOM_LEFT, currentTrack);
+            SwitchTracks[3].TrackOption1 = new Track(Orientation.BOTTOM_LEFT, currentTrack);
+            currentTrack = SwitchTracks[3].TrackOption1;
 
-            SwitchTracks[3].TrackOption1 = currentTrack;
 
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
@@ -73,7 +73,7 @@ namespace Goudkoorts.Models
 
             //Switchtrack nr 2
             SwitchTracks[2].TrackOption1 = currentTrack;
-
+            currentTrack = SwitchTracks[2];
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
 
             //Switchtrack nr 1 until A warehouse
