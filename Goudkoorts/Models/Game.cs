@@ -18,6 +18,7 @@ namespace Goudkoorts.Models
         private Timer _timer;
 
         private Field _field;
+        
         private bool _isOver = false;
         
         public EventLogger Logger { get; } = new EventLogger(5);
@@ -27,6 +28,8 @@ namespace Goudkoorts.Models
         public Game(int intervalMilliseconds)
         {
             _intervalMilliseconds = intervalMilliseconds < MinimumIntervalMilliSeconds ? DefaultIntervalMilliseconds : intervalMilliseconds;
+            
+            _field = new Field();
         }
         
         public void RegisterGameTickObserver(Action<Game> gameTickObserver)
@@ -36,8 +39,9 @@ namespace Goudkoorts.Models
 
         public void SwitchTrack(int trackId)
         {
-            // TODO: Implement this
+            if (!_field.SwitchTracks.ContainsKey(trackId)) return;
             
+            _field.SwitchTracks[trackId].Switch();
             Logger.Log(new TrackSwitchEvent(trackId));
         }
         
@@ -45,8 +49,6 @@ namespace Goudkoorts.Models
         {
             _autoResetEvent = new AutoResetEvent(false);
             _timer = new Timer(Tick, _autoResetEvent, 0, _intervalMilliseconds);
-
-            _field = new Field();
 
             // Start the loop, and throw away the timer once it is done.
             _autoResetEvent.WaitOne();

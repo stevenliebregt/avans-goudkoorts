@@ -12,7 +12,7 @@
 
         public virtual void Switch()
         {
-            ActiveConnection = TrackOption1 == ActiveConnection ? TrackOption2 : TrackOption2;
+            ActiveConnection = TrackOption1 == ActiveConnection ? TrackOption2 : TrackOption1;
         }
     }
 }
