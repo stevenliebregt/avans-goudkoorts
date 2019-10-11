@@ -17,7 +17,7 @@ namespace Goudkoorts.Models
         private AutoResetEvent _autoResetEvent;
         private Timer _timer;
 
-        private Field _field;
+        private readonly Field _field;
         
         private bool _isOver = false;
         
@@ -55,37 +55,17 @@ namespace Goudkoorts.Models
             _timer.Dispose();
         }
 
+        /// <summary>
+        /// Signals the timer so it stops, and disposes of it.
+        /// </summary>
         public void Stop()
         {
-            // TODO: Does AutoResetEvent.Dispose() need to be called?
-            
             _autoResetEvent.Set();
             _timer.Dispose();
         }
 
         private void Tick(object stateInfo)
         {
-            Score += 10; // TODO: Dit is example zodat we iets zien gebeuren
-
-            // TODO: Hieronder is test
-            var random = new Random();
-
-            var warehouse = '?';
-            switch (random.Next(0, 2))
-            {
-                case 0:
-                    warehouse = 'A';
-                    break;
-                case 1:
-                    warehouse = 'B';
-                    break;
-                case 2:
-                    warehouse = 'C';
-                    break;
-            }
-            
-            if (random.Next(0, 10) == 4) Logger.Log(new CartSpawnedEvent(warehouse));
-            
             // TODO: Tick the game state, move carts, spawn carts, etc.
             
             Notify(); // Notify our observers.
@@ -97,6 +77,9 @@ namespace Goudkoorts.Models
             autoEvent.Set();
         }
 
+        /// <summary>
+        /// Notifies all game tick observer functions with the current game instance as argument.
+        /// </summary>
         private void Notify()
         {
             foreach (var gameTickObserver in _gameTickObservers)

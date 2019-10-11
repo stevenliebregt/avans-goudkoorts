@@ -7,8 +7,9 @@ namespace Goudkoorts.Models
     {
         private const int Width = 12;
         private const int Height = 8;
-        public Dictionary<char, Warehouse> Warehouses = new Dictionary<char, Warehouse>();
-        public Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
+        
+        public readonly Dictionary<char, Warehouse> Warehouses = new Dictionary<char, Warehouse>();
+        public readonly Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
 
         public Field()
         {
