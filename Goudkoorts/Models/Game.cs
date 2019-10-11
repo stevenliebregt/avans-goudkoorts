@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Goudkoorts.Models.Events;
 
@@ -95,6 +96,7 @@ namespace Goudkoorts.Models
 
         private void MoveCarts()
         {
+            // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
             // TODO: Also check for collision
             
             throw new NotImplementedException();
@@ -102,6 +104,10 @@ namespace Goudkoorts.Models
         
         private void SpawnCart()
         {
+            var targetWarehouse = _field.Warehouses.ElementAt(_random.Next(0, _field.Warehouses.Count)).Value;
+            
+            // TODO: Spawn
+            
             throw new NotImplementedException();
         }
 
