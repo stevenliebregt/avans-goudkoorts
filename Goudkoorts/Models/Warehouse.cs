@@ -1,6 +1,6 @@
 ﻿namespace Goudkoorts.Models
 {
-    public class Warehouse
+    public class Warehouse : TilePlacable
     {
         public Track StartTrack { get; set; }
     }

@@ -14,7 +14,6 @@ namespace Goudkoorts.Models
             }
             set
             {
-
             }
         }
 

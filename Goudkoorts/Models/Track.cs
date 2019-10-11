@@ -1,6 +1,6 @@
 ﻿namespace Goudkoorts.Models
 {
-    public class Track
+    public class Track : TilePlacable
     {
         public Cart Occupant { get; set; }
         public virtual Track Next { get; set; }

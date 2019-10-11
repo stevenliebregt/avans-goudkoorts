@@ -30,6 +30,7 @@ namespace Goudkoorts.Views
 
             // Append rail part.
             // TODO:
+
             
             // Append log part. TODO: Make nicer
             foreach (var log in game.Logger)
@@ -49,5 +50,6 @@ namespace Goudkoorts.Views
             Console.Clear();
             Console.WriteLine(stringBuilder.ToString());
         }
+
     }
 }
