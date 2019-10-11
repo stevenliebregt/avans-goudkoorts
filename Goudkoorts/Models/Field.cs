@@ -23,11 +23,11 @@ namespace Goudkoorts.Models
         {
             // TODO info voor steven: Op leesrichting geindexed zijn de switchtracks gebaseerd op afbeelding
 
-            SwitchTracks.Add(1, new MergeSwitchTrack(Orientation.LEFT_RIGHT));
-            SwitchTracks.Add(2, new SplitSwitchTrack(Orientation.LEFT_RIGHT));
-            SwitchTracks.Add(3, new MergeSwitchTrack(Orientation.LEFT_RIGHT));
-            SwitchTracks.Add(4, new MergeSwitchTrack(Orientation.LEFT_RIGHT));
-            SwitchTracks.Add(5, new SplitSwitchTrack(Orientation.LEFT_RIGHT));
+            SwitchTracks.Add(1, new MergeSwitchTrack(Orientation.BOTTOM_RIGHT, Orientation.TOP_RIGHT));
+            SwitchTracks.Add(2, new SplitSwitchTrack(Orientation.TOP_LEFT, Orientation.BOTTOM_LEFT));
+            SwitchTracks.Add(3, new MergeSwitchTrack(Orientation.TOP_RIGHT, Orientation.BOTTOM_RIGHT));
+            SwitchTracks.Add(4, new MergeSwitchTrack(Orientation.BOTTOM_RIGHT, Orientation.TOP_RIGHT));
+            SwitchTracks.Add(5, new SplitSwitchTrack(Orientation.BOTTOM_LEFT, Orientation.TOP_LEFT));
 
             Warehouses.Add('A', new Warehouse());
             Warehouses.Add('B', new Warehouse());

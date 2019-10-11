@@ -18,10 +18,6 @@ namespace Goudkoorts.Models
             }
         }
 
-        public SplitSwitchTrack(Orientation orientation) : base(orientation)
-        {
-
-        }
-
+        public SplitSwitchTrack(Orientation orientationOption1, Orientation orientationOption2) : base(orientationOption1, orientationOption2){}
     }
 }
