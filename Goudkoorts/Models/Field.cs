@@ -10,6 +10,7 @@ namespace Goudkoorts.Models
         
         public readonly Dictionary<char, Warehouse> Warehouses = new Dictionary<char, Warehouse>();
         public readonly Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
+        public QuayTrack Quay;
 
         public Field()
         {
@@ -33,7 +34,7 @@ namespace Goudkoorts.Models
             Warehouses.Add('C', new Warehouse());
 
             // Start from top, initializes in opposite direction
-            Track currentTrack = new Track(Orientation.LEFT_RIGHT);
+            var currentTrack = new Track(Orientation.LEFT_RIGHT);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
@@ -41,10 +42,12 @@ namespace Goudkoorts.Models
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
-            currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
-            currentTrack = new QuayTrack(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
 
+            Quay = new QuayTrack(Orientation.LEFT_RIGHT, currentTrack);
+            currentTrack = Quay;
+
+            currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.BOTTOM_LEFT, currentTrack);
 
             currentTrack = new Track(Orientation.TOP_BOTTOM, currentTrack);
