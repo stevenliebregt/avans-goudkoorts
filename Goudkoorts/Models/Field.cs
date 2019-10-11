@@ -42,7 +42,7 @@ namespace Goudkoorts.Models
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
-            currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
+            currentTrack = new QuayTrack(Orientation.LEFT_RIGHT, currentTrack);
             currentTrack = new Track(Orientation.LEFT_RIGHT, currentTrack);
 
             currentTrack = new Track(Orientation.BOTTOM_LEFT, currentTrack);
