@@ -14,15 +14,11 @@ namespace Goudkoorts.Models
 
         public Field()
         {
-            InitializeField(); // TODO: Build the field
+            InitializeField();
         }
-
-        // TODO Onderstaande functie misschien beter andere class
 
         private void InitializeField()
         {
-            // TODO info voor steven: Op leesrichting geindexed zijn de switchtracks gebaseerd op afbeelding
-
             SwitchTracks.Add(1, new MergeSwitchTrack(Orientation.BOTTOM_RIGHT, Orientation.TOP_RIGHT));
             SwitchTracks.Add(2, new SplitSwitchTrack(Orientation.TOP_LEFT, Orientation.BOTTOM_LEFT));
             SwitchTracks.Add(3, new MergeSwitchTrack(Orientation.TOP_RIGHT, Orientation.BOTTOM_RIGHT));
