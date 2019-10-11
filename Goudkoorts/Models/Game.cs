@@ -75,9 +75,8 @@ namespace Goudkoorts.Models
         {
             // TODO: Tick the game state, move carts, spawn carts, boats etc.
 
-            MoveCarts(); // First move any cart that is currently on the track.
-
-            // Spawn new carts.
+            MoveCarts();
+            
             if (_random.Next(0, 100) < CartSpawnChancePercentage) SpawnCart();
 
             // Check for a full ship.
@@ -85,7 +84,7 @@ namespace Goudkoorts.Models
             
             // if (_field.Quay.Empty && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip(); // TODO: Enable (alleen als schip niet deze beurt geleegd is (denk ik))
 
-            Notify(); // Notify our observers.
+            NotifyObservers();
             
             if (!_isOver) return;
             
@@ -116,10 +115,7 @@ namespace Goudkoorts.Models
             throw new NotImplementedException();
         }
         
-        /// <summary>
-        /// Notifies all game tick observer functions with the current game instance as argument.
-        /// </summary>
-        private void Notify()
+        private void NotifyObservers()
         {
             foreach (var gameTickObserver in _gameTickObservers)
             {
