@@ -23,11 +23,10 @@ namespace Goudkoorts.Models
 
         private readonly Random _random;
         
-        private readonly Field _field;
-        
         private bool _isOver = false;
         
         public EventLogger Logger { get; } = new EventLogger(5);
+        public Field Field { get; private set; }
 
         public int Score { get; private set; } = 0;
         
@@ -36,7 +35,7 @@ namespace Goudkoorts.Models
             _intervalMilliseconds = intervalMilliseconds < MinimumIntervalMilliSeconds ? DefaultIntervalMilliseconds : intervalMilliseconds;
 
             _random = new Random();
-            _field = new Field();
+            Field = new Field();
         }
         
         public void RegisterGameTickObserver(Action<Game> gameTickObserver)
@@ -46,9 +45,9 @@ namespace Goudkoorts.Models
 
         public void SwitchTrack(int trackId)
         {
-            if (!_field.SwitchTracks.ContainsKey(trackId)) return;
-            
-            _field.SwitchTracks[trackId].Switch();
+            if (!Field.SwitchTracks.ContainsKey(trackId)) return;
+
+            Field.SwitchTracks[trackId].Switch();
             Logger.Log(new TrackSwitchEvent(trackId));
         }
         
@@ -103,7 +102,7 @@ namespace Goudkoorts.Models
         
         private void SpawnCart()
         {
-            var targetWarehouse = _field.Warehouses.ElementAt(_random.Next(0, _field.Warehouses.Count)).Value;
+            var targetWarehouse = Field.Warehouses.ElementAt(_random.Next(0, Field.Warehouses.Count)).Value;
             
             // TODO: Spawn
             
@@ -112,6 +111,7 @@ namespace Goudkoorts.Models
 
         private void SpawnShip()
         {
+            // TODO field heeft de tile property waar die op moet
             throw new NotImplementedException();
         }
         

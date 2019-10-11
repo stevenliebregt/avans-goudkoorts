@@ -29,8 +29,15 @@ namespace Goudkoorts.Views
             stringBuilder.AppendLine($"Game score = {game.Score}");
 
             // Append rail part.
-            // TODO:
-
+            for (int row = 0; row < game.Field.Tiles.GetLength(0); row++)
+            {
+                string line = "";
+                for (int col = 0; col < game.Field.Tiles.GetLength(1); col++)
+                {
+                    line += GetDrawChar(game.Field.Tiles[row, col]);
+                }
+                stringBuilder.AppendLine(line);
+            }
             
             // Append log part. TODO: Make nicer
             foreach (var log in game.Logger)
@@ -51,5 +58,48 @@ namespace Goudkoorts.Views
             Console.WriteLine(stringBuilder.ToString());
         }
 
+        //TODO finish this
+        //TODO think of good symbols
+        private char GetDrawChar(Tile tile)
+        {
+            if (tile.Placable == null)
+            {
+                if (tile is WaterTile)
+                    return '≈';
+                if (tile is Tile)
+                    return ' ';
+            }
+            else if (tile.Placable is Track track)
+            {
+                if (track.Occupant != null)
+                {
+                    
+                    return 'c';
+                }
+                else
+                {
+                    switch (track.Orientation)
+                    {
+                        case Orientation.LEFT_RIGHT:
+                            return '─';
+                        case Orientation.TOP_BOTTOM:
+                            return '│';
+                        case Orientation.BOTTOM_LEFT:
+                            return '┐';
+                        case Orientation.BOTTOM_RIGHT:
+                            return '┌';
+                        case Orientation.TOP_LEFT:
+                            return '┘';
+                        case Orientation.TOP_RIGHT:
+                            return '└';
+                    }
+                }
+            }
+            else if (tile.Placable is Warehouse warehouse)
+            {
+                return warehouse.Letter;
+            }
+            return ' ';
+        }
     }
 }

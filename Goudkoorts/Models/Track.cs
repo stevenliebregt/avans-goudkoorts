@@ -13,7 +13,7 @@
         }
 
         private readonly Orientation _orientation;
-
+        
         public Track(Orientation orientation, Track next = null)
         {
             _orientation = orientation;

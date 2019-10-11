@@ -29,9 +29,9 @@ namespace Goudkoorts.Models
             SwitchTracks.Add(4, (SwitchTrack)AddToTiles(new MergeSwitchTrack(Orientation.BOTTOM_RIGHT, Orientation.TOP_RIGHT), 6, 6));
             SwitchTracks.Add(5, (SwitchTrack)AddToTiles(new SplitSwitchTrack(Orientation.BOTTOM_LEFT, Orientation.TOP_LEFT), 6, 8));
 
-            Warehouses.Add('A', (Warehouse)AddToTiles(new Warehouse(), 3, 0));
-            Warehouses.Add('B', (Warehouse)AddToTiles(new Warehouse(), 5, 0));
-            Warehouses.Add('C', (Warehouse)AddToTiles(new Warehouse(), 7, 0));
+            Warehouses.Add('A', (Warehouse)AddToTiles(new Warehouse('A'), 3, 0));
+            Warehouses.Add('B', (Warehouse)AddToTiles(new Warehouse('B'), 5, 0));
+            Warehouses.Add('C', (Warehouse)AddToTiles(new Warehouse('C'), 7, 0));
 
             // Start from top, initializes in opposite direction
             var currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT),1,0);
@@ -137,13 +137,16 @@ namespace Goudkoorts.Models
 
         private void GenerateTiles()
         {
-            for (int y = 0; y < Height; y++)
+            for (int y = 0; y < 1; y++)
             {
-                for (int x = 0; x < 1; x++)
+                for (int x = 0; x < Width; x++)
                 {
                     Tiles[y, x] = new WaterTile();
                 }
-                for (int x = 1; x < Width; x++)
+            }
+            for (int y = 1; y < Height; y++)
+            {
+                for (int x = 0; x < Width; x++)
                 {
                     Tiles[y, x] = new Tile();
                 }
