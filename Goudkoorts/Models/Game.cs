@@ -9,6 +9,9 @@ namespace Goudkoorts.Models
     {
         private const int MinimumIntervalMilliSeconds = 100;
         private const int DefaultIntervalMilliseconds = 1000;
+
+        private const int CartSpawnChancePercentage = 10;
+        private const int ShipSpawnChancePercentage = 40;
         
         private readonly int _intervalMilliseconds;
 
@@ -17,6 +20,8 @@ namespace Goudkoorts.Models
         private AutoResetEvent _autoResetEvent;
         private Timer _timer;
 
+        private readonly Random _random;
+        
         private readonly Field _field;
         
         private bool _isOver = false;
@@ -28,7 +33,8 @@ namespace Goudkoorts.Models
         public Game(int intervalMilliseconds)
         {
             _intervalMilliseconds = intervalMilliseconds < MinimumIntervalMilliSeconds ? DefaultIntervalMilliseconds : intervalMilliseconds;
-            
+
+            _random = new Random();
             _field = new Field();
         }
         
@@ -66,8 +72,18 @@ namespace Goudkoorts.Models
 
         private void Tick(object stateInfo)
         {
-            // TODO: Tick the game state, move carts, spawn carts, etc.
+            // TODO: Tick the game state, move carts, spawn carts, boats etc.
+
+            MoveCarts(); // First move any cart that is currently on the track.
+
+            // Spawn new carts.
+            if (_random.Next(0, 100) < CartSpawnChancePercentage) SpawnCart();
+
+            // Check for a full ship.
+            // TODO: Implement
             
+            // if (_field.Quay.Empty && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip(); // TODO: Enable (alleen als schip niet deze beurt geleegd is (denk ik))
+
             Notify(); // Notify our observers.
             
             if (!_isOver) return;
@@ -77,6 +93,23 @@ namespace Goudkoorts.Models
             autoEvent.Set();
         }
 
+        private void MoveCarts()
+        {
+            // TODO: Also check for collision
+            
+            throw new NotImplementedException();
+        }
+        
+        private void SpawnCart()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SpawnShip()
+        {
+            throw new NotImplementedException();
+        }
+        
         /// <summary>
         /// Notifies all game tick observer functions with the current game instance as argument.
         /// </summary>
