@@ -40,19 +40,19 @@ namespace Goudkoorts.Models
 
             while (movableCarts.Count > 0)
             {
-                Cart cart = movableCarts.First(); // Current cart in loop
+                Cart cart = movableCarts.First();
                 Cart nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved
 
-                // Decides which cart should be moved
+                // overwrites with next cart that needs to be tried first
                 if (nextCart != null && movableCarts.Contains(nextCart))
                     cart = nextCart;
 
                 cart.Move();
                 
-                if (cart.Retired) Carts.Remove(cart); // Remove cart if it is finished
-                if (cart.Crashed) return false; // Stop if the cart crashed
+                if (cart.Retired) Carts.Remove(cart); // Remove moved cart if it is finished
+                if (cart.Crashed) return false; // Stop if the moved cart crashed
 
-                movableCarts.Remove(cart); // Remove cart that has been moved
+                movableCarts.Remove(cart); // Remove cart that actually has been moved
             }
             return true;
         }
