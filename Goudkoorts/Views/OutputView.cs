@@ -23,12 +23,17 @@ namespace Goudkoorts.Views
 
         public void DrawGame(Game game)
         {
+            const int lineLength = 40;
+            
             var stringBuilder = new StringBuilder();
             
-            // Append score part. TODO: Make nicer
-            stringBuilder.AppendLine($"Game score = {game.Score}");
+            // Append score part.
+            stringBuilder.AppendLine("═══ Score ".PadRight(lineLength, '═'));
+            stringBuilder.AppendLine(game.Score.ToString().PadLeft(7, '0'));
 
             // Append rail part.
+            stringBuilder.AppendLine("═══ Speelveld ".PadRight(lineLength, '═'));
+            
             for (var row = 0; row < game.Field.Tiles.GetLength(0); row++)
             {
                 var line = "";
@@ -39,11 +44,26 @@ namespace Goudkoorts.Views
                 stringBuilder.AppendLine(line);
             }
             
-            // Append log part. TODO: Make nicer
+            // Append log part.
+            stringBuilder.AppendLine("═══ Logs ".PadRight(lineLength, '═'));
+
+            var logCount = 0;
             foreach (var log in game.Logger)
             {
                 stringBuilder.AppendLine(log.ToString());
+                logCount++;
             }
+
+            while (logCount < 5)
+            {
+                stringBuilder.AppendLine("");
+                logCount++;
+            }
+
+            // Append controls.
+            stringBuilder.AppendLine("═══ Bediening ".PadRight(lineLength, '═'));
+            stringBuilder.AppendLine("Druk op de toetsen 1 - 5 om de wissels om te zetten");
+            stringBuilder.AppendLine("Druk op <ESCAPE> om te stoppen");
             
             Console.Clear();
             Console.WriteLine(stringBuilder.ToString());
