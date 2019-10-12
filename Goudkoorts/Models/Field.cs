@@ -35,38 +35,24 @@ namespace Goudkoorts.Models
 
         public bool MoveCarts()
         {
-            // Keep temporary editable list of carts only for this loop
-            List<Cart> tempCarts = new List<Cart>(Carts);
+            // Only has the carts that still need to be moved this round
+            List<Cart> movableCarts = new List<Cart>(Carts);
 
-            // Dictionary that keeps track of carts that already moved this round
-            Dictionary<Cart, bool> cartsMoved = new Dictionary<Cart, bool>();
-            tempCarts.ForEach(c => cartsMoved.Add(c, false));
-
-            foreach (var cart in tempCarts)
+            while (movableCarts.Count > 0)
             {
-                Cart nextCart = cart.Location.Next?.Occupant;
-                Cart cartToMove = null;
+                Cart cart = movableCarts.First(); // Current cart in loop
+                Cart nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved
 
-                //Moves next cart first if it exists and if it can still move this round
-                if (nextCart != null && !cartsMoved[nextCart])
-                {
-                    cartToMove = nextCart;
-                    tempCarts.Remove(nextCart);
-                    tempCarts.Add(cart);
-                }
-                else
-                {
-                    cartToMove = cart;
-                }
+                // Decides which cart should be moved
+                if (nextCart != null && movableCarts.Contains(nextCart))
+                    cart = nextCart;
 
-                cartsMoved[cartToMove] = true;
+                cart.Move();
+                
+                if (cart.Retired) Carts.Remove(cart); // Remove cart if it is finished
+                if (cart.Crashed) return false; // Stop if the cart crashed
 
-                cartToMove.Move();
-
-                // Remove cart if it is finished from track
-                if (cart.Retired) Carts.Remove(cart);
-
-                if (cart.Crashed) return false;
+                movableCarts.Remove(cart); // Remove cart that has been moved
             }
             return true;
         }
