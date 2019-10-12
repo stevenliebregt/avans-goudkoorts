@@ -54,7 +54,7 @@ namespace Goudkoorts.Views
                 logCount++;
             }
 
-            while (logCount < 5)
+            while (logCount < 5) // Reserve the space for 5 logs.
             {
                 stringBuilder.AppendLine("");
                 logCount++;
@@ -120,6 +120,10 @@ namespace Goudkoorts.Views
             else if (tile.Placable is Warehouse warehouse)
             {
                 return warehouse.Letter;
+            }
+            else if (tile.Placable is Ship)
+            {
+                return 'S';
             }
             
             return ' ';

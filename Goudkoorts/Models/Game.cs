@@ -24,11 +24,13 @@ namespace Goudkoorts.Models
         private readonly Random _random;
         
         private bool _isOver = false;
+
+        private bool _shipSpawnCooldown = false;
         
         public EventLogger Logger { get; } = new EventLogger(5);
         public Field Field { get; }
 
-        public int Score { get; } = 0;
+        public int Score { get; private set; } = 0;
         
         public Game(int intervalMilliseconds)
         {
@@ -73,15 +75,16 @@ namespace Goudkoorts.Models
         private void Tick(object stateInfo)
         {
             MoveCarts();
-            
+
             if (_random.Next(0, 100) < CartSpawnChancePercentage) SpawnCart();
 
-            // Check for a full ship.
-            // TODO: Implement
+            if (Field.Ship != null && Field.Ship.Full) HandleFullShip();
             
-            // if (??? && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip(); // TODO: Enable (alleen als schip niet deze beurt geleegd is (denk ik))
+            if (!_shipSpawnCooldown && Field.Ship == null && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip();
 
             NotifyObservers();
+
+            _shipSpawnCooldown = false; // Remove cooldown at end of turn.
             
             if (!_isOver) return;
             
@@ -95,7 +98,7 @@ namespace Goudkoorts.Models
             // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
             // TODO: Also check for collision
         }
-        
+
         private void SpawnCart()
         {
             var targetWarehouse = Field.Warehouses.ElementAt(_random.Next(0, Field.Warehouses.Count)).Value;
@@ -106,9 +109,18 @@ namespace Goudkoorts.Models
 
         private void SpawnShip()
         {
-            // TODO field heeft de tile property waar die op moet
+            Field.Ship = new Ship();
             
-            throw new NotImplementedException();
+            Logger.Log(new ShipArrivedEvent());
+        }
+
+        private void HandleFullShip()
+        {
+            Field.Ship = null;
+            Score += 10;
+            Logger.Log(new ShipLeftEvent());
+
+            _shipSpawnCooldown = true;
         }
         
         private void NotifyObservers()

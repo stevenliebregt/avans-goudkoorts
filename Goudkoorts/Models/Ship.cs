@@ -2,9 +2,8 @@
 {
     public class Ship : TilePlacable
     {
-        //TODO dit kan weg denkik \/ ?
         public int FreeSpaces { get; set; } = 8;
 
-
+        public bool Full => FreeSpaces == 0;
     }
 }

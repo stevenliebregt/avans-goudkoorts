@@ -14,13 +14,21 @@ namespace Goudkoorts.Models
         public readonly Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
         
         public QuayTrack Quay;
-        
-        public Tile ShipTile => Tiles[0,9];
+
+        private Tile ShipSpawnTile => Tiles[0,9];
+
+        public Ship Ship
+        {
+            get => (Ship) ShipSpawnTile.Placable;
+            set => ShipSpawnTile.Placable = value;
+        }
 
         public Field()
         {
             GenerateTiles();
             InitializeField();
+            
+            Ship = new Ship();
         }
 
         private void InitializeField()
