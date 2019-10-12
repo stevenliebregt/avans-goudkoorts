@@ -95,6 +95,10 @@ namespace Goudkoorts.Models
 
         private void MoveCarts()
         {
+            foreach (var cart in Field.Carts)
+            {
+                cart.Move();
+            }
             // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
             // TODO: Also check for collision
         }
@@ -102,7 +106,11 @@ namespace Goudkoorts.Models
         private void SpawnCart()
         {
             var targetWarehouse = Field.Warehouses.ElementAt(_random.Next(0, Field.Warehouses.Count)).Value;
-            targetWarehouse.StartTrack.Occupant = new Cart();
+            var cart = new Cart();
+
+            targetWarehouse.StartTrack.Occupant = cart;
+            cart.Location = targetWarehouse.StartTrack;
+            Field.AddCart(cart);
             
             Logger.Log(new CartSpawnedEvent(targetWarehouse.Letter));
         }

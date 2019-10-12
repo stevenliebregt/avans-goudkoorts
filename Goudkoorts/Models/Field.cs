@@ -10,9 +10,10 @@ namespace Goudkoorts.Models
 
         public Tile[,] Tiles = new Tile[Height, Width];
 
-        public readonly Dictionary<char, Warehouse> Warehouses = new Dictionary<char, Warehouse>();
-        public readonly Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
-        
+        public Dictionary<char, Warehouse> Warehouses { get; } = new Dictionary<char, Warehouse>();
+        public Dictionary<int, SwitchTrack> SwitchTracks { get; } = new Dictionary<int, SwitchTrack>();
+        public List<Cart> Carts { get; } = new List<Cart>();
+
         public QuayTrack Quay;
 
         private Tile ShipSpawnTile => Tiles[0,9];
@@ -143,6 +144,11 @@ namespace Goudkoorts.Models
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 2);
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 1);
             Warehouses['C'].StartTrack = currentTrack;
+        }
+
+        public void AddCart(Cart occupant)
+        {
+            Carts.Add(occupant);
         }
 
         private void GenerateTiles()
