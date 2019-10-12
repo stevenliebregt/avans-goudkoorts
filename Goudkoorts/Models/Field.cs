@@ -33,8 +33,6 @@ namespace Goudkoorts.Models
             Ship = new Ship();
         }
 
-        // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
-        // TODO: Also check for collision
         public bool MoveCarts()
         {
             // Keep temporary editable list of carts only for this loop
@@ -49,7 +47,7 @@ namespace Goudkoorts.Models
                 Cart nextCart = cart.Location.Next?.Occupant;
                 Cart cartToMove = null;
 
-                //Moves next cart first if it exists and if it can still move
+                //Moves next cart first if it exists and if it can still move this round
                 if (nextCart != null && !cartsMoved[nextCart])
                 {
                     cartToMove = nextCart;
@@ -65,8 +63,8 @@ namespace Goudkoorts.Models
 
                 cartToMove.Move();
 
-                // Remove cart if dissapeares from track
-                if (cart.Finished) Carts.Remove(cart);
+                // Remove cart if it is finished from track
+                if (cart.Retired) Carts.Remove(cart);
 
                 if (cart.Crashed) return false;
             }

@@ -4,7 +4,7 @@
     {
         public bool Empty { get; set; } = false;
         public bool Crashed { get; set; } = false;
-        public bool Finished { get => Location == null; }
+        public bool Retired { get => Location == null; }
         public Track Location { get; set; }
 
         public void Move()

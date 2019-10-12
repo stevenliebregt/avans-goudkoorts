@@ -17,7 +17,7 @@
 
         public virtual Track MoveCart()
         {
-            //Destroy cart if it reaches end
+            //Retire cart if it reaches end of this regular track
             if (Next == null)
             {
                 Occupant = null;
