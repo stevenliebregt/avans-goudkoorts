@@ -1,81 +1,188 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Goudkoorts.Models.Cart" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="15" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Models.Field" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="16.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAABEAACAAAAAAAAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>gAAAAAAABCAAAAAAAAAQAEAAAACABAIAAAAAAAgQAQA=</HashCode>
       <FileName>Models\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.QuayTrack" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+  <Class Name="Goudkoorts.Models.QuayTrack">
+    <Position X="3.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\QuayTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.Ship" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+  <Class Name="Goudkoorts.Models.Ship">
+    <Position X="10.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.ShuntTrack" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+  <Class Name="Goudkoorts.Models.ShuntTrack">
+    <Position X="1" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ShuntTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.SwitchTrack" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
+  <Class Name="Goudkoorts.Models.SwitchTrack">
+    <Position X="6.5" Y="5.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAIAAAAAAAIAAAAAAAAAAAAAIAAAAIwA=</HashCode>
       <FileName>Models\SwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.Track" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+  <Class Name="Goudkoorts.Models.Track">
+    <Position X="4.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IgAAAAAAAQAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Models\Track.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Models.Warehouse" Collapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+  <Class Name="Goudkoorts.Models.Warehouse">
+    <Position X="12.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Models.Game" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="18.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAgQggAAAAAAAAEAAAIAgJAIAAAAKAAQAI=</HashCode>
+      <HashCode>AAAAAAAAgSIgQgwAAAAAAAAAAAAJAgIAIAEAAKAgyAM=</HashCode>
       <FileName>Models\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.JoinSwitchTrack">
-    <Position X="6" Y="3.25" Width="1.5" />
+  <Class Name="Goudkoorts.Views.InputView" Collapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>JoinSwitchTrack.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Views\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.SplitSwitchTrack">
-    <Position X="4" Y="3.25" Width="1.5" />
+  <Class Name="Goudkoorts.Views.OutputView" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SplitSwitchTrack.cs</FileName>
+      <HashCode>AAAAABAAAAAAAACgAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Goudkoorts.Models.Events.CartCrashedEvent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\CartCrashedEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.Events.CartSpawnedEvent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\CartSpawnedEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.Events.EventLogger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAEAAAAAAABAgAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\EventLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.Events.ShipArrivedEvent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\ShipArrivedEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.Events.ShipLeftEvent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\ShipLeftEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.Events.TrackSwitchEvent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\TrackSwitchEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Goudkoorts.Models.MergeSwitchTrack">
+    <Position X="7.75" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tracks\MergeSwitchTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.SplitSwitchTrack">
+    <Position X="5.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tracks\SplitSwitchTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Tile">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Placable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Models.TilePlacable">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TilePlacable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.WaterTile">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\WaterTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.Controller" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAABAAAAAAIAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Goudkoorts.Models.Events.IEvent" Collapsed="true">
+    <Position X="15" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Events\IEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Goudkoorts.Models.Orientation" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAIGAAAAAAAABAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\Orientation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
