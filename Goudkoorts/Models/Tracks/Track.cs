@@ -3,6 +3,7 @@
     public class Track : TilePlacable
     {
         public Cart Occupant { get; set; }
+        public bool IsOccupied { get => Occupant != null;  }
         public virtual Track Next { get; set; }
         public virtual Orientation Orientation => _orientation;
 
@@ -16,7 +17,22 @@
 
         public virtual Track MoveCart()
         {
-            if (Next != null && Next.ReceiveCart(Occupant))
+            //Destroy cart if it reaches end
+            if (Next == null)
+            {
+                Occupant = null;
+                return null;
+            }
+
+            //Crash if next tile is occupied
+            if (Next.IsOccupied)
+            {
+                Occupant.Crashed = true;
+                return this;
+            }
+
+            //Try to let next track receive cart
+            else if (Next.ReceiveCart(Occupant))
             {
                 Occupant = null;
                 return Next;

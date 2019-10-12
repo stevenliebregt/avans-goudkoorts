@@ -95,7 +95,12 @@ namespace Goudkoorts.Models
 
         private void MoveCarts()
         {
-            Field.MoveCarts();
+            //Checks if crash occured
+            if (!Field.MoveCarts())
+            {
+                //TODO gameover
+                _isOver = true;
+            }
         }
 
         private void SpawnCart()

@@ -33,15 +33,44 @@ namespace Goudkoorts.Models
             Ship = new Ship();
         }
 
-        public void MoveCarts()
+        // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
+        // TODO: Also check for collision
+        public bool MoveCarts()
         {
-            // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
-            // TODO: Also check for collision
-            foreach (var cart in Carts)
-            {
-                cart.Move();
-            }
+            // Keep temporary editable list of carts only for this loop
+            List<Cart> tempCarts = new List<Cart>(Carts);
 
+            // Dictionary that keeps track of carts that already moved this round
+            Dictionary<Cart, bool> cartsMoved = new Dictionary<Cart, bool>();
+            tempCarts.ForEach(c => cartsMoved.Add(c, false));
+
+            foreach (var cart in tempCarts)
+            {
+                Cart nextCart = cart.Location.Next?.Occupant;
+                Cart cartToMove = null;
+
+                //Moves next cart first if it exists and if it can still move
+                if (nextCart != null && !cartsMoved[nextCart])
+                {
+                    cartToMove = nextCart;
+                    tempCarts.Remove(nextCart);
+                    tempCarts.Add(cart);
+                }
+                else
+                {
+                    cartToMove = cart;
+                }
+
+                cartsMoved[cartToMove] = true;
+
+                cartToMove.Move();
+
+                // Remove cart if dissapeares from track
+                if (cart.Finished) Carts.Remove(cart);
+
+                if (cart.Crashed) return false;
+            }
+            return true;
         }
 
         public Warehouse SpawnCart()
