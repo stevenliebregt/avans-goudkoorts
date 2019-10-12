@@ -105,14 +105,7 @@ namespace Goudkoorts.Models
 
         private void SpawnCart()
         {
-            var targetWarehouse = Field.Warehouses.ElementAt(_random.Next(0, Field.Warehouses.Count)).Value;
-            var cart = new Cart();
-
-            targetWarehouse.StartTrack.Occupant = cart;
-            cart.Location = targetWarehouse.StartTrack;
-            Field.AddCart(cart);
-            
-            Logger.Log(new CartSpawnedEvent(targetWarehouse.Letter));
+            Logger.Log(new CartSpawnedEvent(Field.SpawnCart().Letter));
         }
 
         private void SpawnShip()

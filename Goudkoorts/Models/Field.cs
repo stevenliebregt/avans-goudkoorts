@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Goudkoorts.Models
 {
@@ -146,9 +147,15 @@ namespace Goudkoorts.Models
             Warehouses['C'].StartTrack = currentTrack;
         }
 
-        public void AddCart(Cart occupant)
+        public Warehouse SpawnCart()
         {
-            Carts.Add(occupant);
+            var targetWarehouse = Warehouses.ElementAt(new Random().Next(0, Warehouses.Count)).Value;
+            var cart = new Cart();
+
+            targetWarehouse.StartTrack.Occupant = cart;
+            cart.Location = targetWarehouse.StartTrack;
+            Carts.Add(cart);
+            return targetWarehouse;
         }
 
         private void GenerateTiles()
