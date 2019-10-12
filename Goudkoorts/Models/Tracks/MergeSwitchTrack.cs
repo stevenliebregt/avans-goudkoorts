@@ -11,9 +11,9 @@ namespace Goudkoorts.Models
         public override bool ReceiveCart(Cart newCart)
         {
             // Check if cart can go into switch
-            if (newCart.Location == Next)
+            if (newCart.Location == ActiveConnection)
             {
-                Next.Occupant = newCart;
+                Occupant = newCart;
                 return true;
             }
             return false;

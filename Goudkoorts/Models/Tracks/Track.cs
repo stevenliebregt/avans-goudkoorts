@@ -26,7 +26,7 @@
 
         public virtual bool ReceiveCart(Cart newCart)
         {
-            Next.Occupant = newCart;
+            Occupant = newCart;
             return true;
         }
     }

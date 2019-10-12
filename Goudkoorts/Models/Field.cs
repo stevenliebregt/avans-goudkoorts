@@ -33,6 +33,28 @@ namespace Goudkoorts.Models
             Ship = new Ship();
         }
 
+        public void MoveCarts()
+        {
+            // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
+            // TODO: Also check for collision
+            foreach (var cart in Carts)
+            {
+                cart.Move();
+            }
+
+        }
+
+        public Warehouse SpawnCart()
+        {
+            var targetWarehouse = Warehouses.ElementAt(new Random().Next(0, Warehouses.Count)).Value;
+            var cart = new Cart();
+
+            targetWarehouse.StartTrack.Occupant = cart;
+            cart.Location = targetWarehouse.StartTrack;
+            Carts.Add(cart);
+            return targetWarehouse;
+        }
+
         private void InitializeField()
         {
             SwitchTracks.Add(1, (SwitchTrack)AddToTiles(new MergeSwitchTrack(Orientation.BOTTOM_RIGHT, Orientation.TOP_RIGHT), 4, 3));
@@ -137,6 +159,7 @@ namespace Goudkoorts.Models
             SwitchTracks[5].TrackOption1 = currentTrack;
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, SwitchTracks[5]), 6, 7);
             SwitchTracks[4].Next = currentTrack;
+            currentTrack = SwitchTracks[4];
             currentTrack = (Track)AddToTiles(new Track(Orientation.TOP_LEFT, currentTrack), 7, 6);
             SwitchTracks[4].TrackOption1 = currentTrack;
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 5);
@@ -145,17 +168,6 @@ namespace Goudkoorts.Models
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 2);
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 1);
             Warehouses['C'].StartTrack = currentTrack;
-        }
-
-        public Warehouse SpawnCart()
-        {
-            var targetWarehouse = Warehouses.ElementAt(new Random().Next(0, Warehouses.Count)).Value;
-            var cart = new Cart();
-
-            targetWarehouse.StartTrack.Occupant = cart;
-            cart.Location = targetWarehouse.StartTrack;
-            Carts.Add(cart);
-            return targetWarehouse;
         }
 
         private void GenerateTiles()

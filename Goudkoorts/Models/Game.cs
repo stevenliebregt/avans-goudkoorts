@@ -95,12 +95,7 @@ namespace Goudkoorts.Models
 
         private void MoveCarts()
         {
-            foreach (var cart in Field.Carts)
-            {
-                cart.Move();
-            }
-            // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
-            // TODO: Also check for collision
+            Field.MoveCarts();
         }
 
         private void SpawnCart()
