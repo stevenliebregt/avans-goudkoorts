@@ -2,25 +2,16 @@
 {
     public abstract class SwitchTrack : Track
     {
-        public override Orientation Orientation
-        {
-            get
-            {
-                return ActiveConnection == TrackOption1 ? _orientationOption1 : _orientationOption2;
-            }
-        }
+        public override Orientation Orientation => ActiveConnection == TrackOption1 ? _orientationOption1 : _orientationOption2;
 
         private readonly Orientation _orientationOption1;
         private readonly Orientation _orientationOption2;
 
-        //Created this because i needed to add something to setter
+        // Created this because i needed to add something to setter
         private Track _trackOption1;
         public Track TrackOption1
         {
-            get 
-            { 
-                return _trackOption1; 
-            }
+            get => _trackOption1;
             set
             {
                 _trackOption1 = value;

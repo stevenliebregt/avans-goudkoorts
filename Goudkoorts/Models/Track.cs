@@ -4,13 +4,7 @@
     {
         public Cart Occupant { get; set; }
         public virtual Track Next { get; set; }
-        public virtual Orientation Orientation
-        {
-            get
-            {
-                return _orientation;
-            }
-        }
+        public virtual Orientation Orientation => _orientation;
 
         private readonly Orientation _orientation;
         

@@ -29,10 +29,10 @@ namespace Goudkoorts.Views
             stringBuilder.AppendLine($"Game score = {game.Score}");
 
             // Append rail part.
-            for (int row = 0; row < game.Field.Tiles.GetLength(0); row++)
+            for (var row = 0; row < game.Field.Tiles.GetLength(0); row++)
             {
-                string line = "";
-                for (int col = 0; col < game.Field.Tiles.GetLength(1); col++)
+                var line = "";
+                for (var col = 0; col < game.Field.Tiles.GetLength(1); col++)
                 {
                     line += GetDrawChar(game.Field.Tiles[row, col]);
                 }

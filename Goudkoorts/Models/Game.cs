@@ -26,9 +26,9 @@ namespace Goudkoorts.Models
         private bool _isOver = false;
         
         public EventLogger Logger { get; } = new EventLogger(5);
-        public Field Field { get; private set; }
+        public Field Field { get; }
 
-        public int Score { get; private set; } = 0;
+        public int Score { get; } = 0;
         
         public Game(int intervalMilliseconds)
         {
@@ -72,8 +72,6 @@ namespace Goudkoorts.Models
 
         private void Tick(object stateInfo)
         {
-            // TODO: Tick the game state, move carts, spawn carts, boats etc.
-
             MoveCarts();
             
             if (_random.Next(0, 100) < CartSpawnChancePercentage) SpawnCart();
@@ -81,7 +79,7 @@ namespace Goudkoorts.Models
             // Check for a full ship.
             // TODO: Implement
             
-            // if (_field.Quay.Empty && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip(); // TODO: Enable (alleen als schip niet deze beurt geleegd is (denk ik))
+            // if (??? && _random.Next(0, 100) < ShipSpawnChancePercentage) SpawnShip(); // TODO: Enable (alleen als schip niet deze beurt geleegd is (denk ik))
 
             NotifyObservers();
             
@@ -96,22 +94,20 @@ namespace Goudkoorts.Models
         {
             // TODO: Move voorste karretjes eerst, of check na deze functie pas op botsing
             // TODO: Also check for collision
-            
-            throw new NotImplementedException();
         }
         
         private void SpawnCart()
         {
             var targetWarehouse = Field.Warehouses.ElementAt(_random.Next(0, Field.Warehouses.Count)).Value;
+            targetWarehouse.StartTrack.Occupant = new Cart();
             
-            // TODO: Spawn
-            
-            throw new NotImplementedException();
+            Logger.Log(new CartSpawnedEvent(targetWarehouse.Letter));
         }
 
         private void SpawnShip()
         {
             // TODO field heeft de tile property waar die op moet
+            
             throw new NotImplementedException();
         }
         

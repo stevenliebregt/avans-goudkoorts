@@ -12,8 +12,10 @@ namespace Goudkoorts.Models
 
         public readonly Dictionary<char, Warehouse> Warehouses = new Dictionary<char, Warehouse>();
         public readonly Dictionary<int, SwitchTrack> SwitchTracks = new Dictionary<int, SwitchTrack>();
+        
         public QuayTrack Quay;
-        public Tile ShipTile { get => Tiles[0,9]; }
+        
+        public Tile ShipTile => Tiles[0,9];
 
         public Field()
         {
@@ -137,16 +139,16 @@ namespace Goudkoorts.Models
 
         private void GenerateTiles()
         {
-            for (int y = 0; y < 1; y++)
+            for (var y = 0; y < 1; y++)
             {
-                for (int x = 0; x < Width; x++)
+                for (var x = 0; x < Width; x++)
                 {
                     Tiles[y, x] = new WaterTile();
                 }
             }
-            for (int y = 1; y < Height; y++)
+            for (var y = 1; y < Height; y++)
             {
-                for (int x = 0; x < Width; x++)
+                for (var x = 0; x < Width; x++)
                 {
                     Tiles[y, x] = new Tile();
                 }
