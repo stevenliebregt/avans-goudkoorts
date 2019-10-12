@@ -93,32 +93,35 @@ namespace Goudkoorts.Views
             {
                 if (track.Occupant != null)
                 {
-                    
-                    return 'c';
+                    return track.Occupant.Empty ? 'o' : 'ô';
                 }
-                else
+
+                if (track is QuayTrack)
                 {
-                    switch (track.Orientation)
-                    {
-                        case Orientation.LEFT_RIGHT:
-                            return '─';
-                        case Orientation.TOP_BOTTOM:
-                            return '│';
-                        case Orientation.BOTTOM_LEFT:
-                            return '┐';
-                        case Orientation.BOTTOM_RIGHT:
-                            return '┌';
-                        case Orientation.TOP_LEFT:
-                            return '┘';
-                        case Orientation.TOP_RIGHT:
-                            return '└';
-                    }
+                    return 'K';
+                }
+                
+                switch (track.Orientation)
+                {
+                    case Orientation.LEFT_RIGHT:
+                        return '─';
+                    case Orientation.TOP_BOTTOM:
+                        return '│';
+                    case Orientation.BOTTOM_LEFT:
+                        return '┐';
+                    case Orientation.BOTTOM_RIGHT:
+                        return '┌';
+                    case Orientation.TOP_LEFT:
+                        return '┘';
+                    case Orientation.TOP_RIGHT:
+                        return '└';
                 }
             }
             else if (tile.Placable is Warehouse warehouse)
             {
                 return warehouse.Letter;
             }
+            
             return ' ';
         }
     }
