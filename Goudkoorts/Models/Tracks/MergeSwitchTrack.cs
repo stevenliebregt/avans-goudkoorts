@@ -7,12 +7,18 @@
         public override bool ReceiveCart(Cart newCart)
         {
             // Check if cart can go into switch
-            if (newCart.Location == ActiveConnection)
+            if (CanReceiveCart(newCart))
             {
                 Occupant = newCart;
                 return true;
             }
             return false;
         }
+
+        public override bool CanReceiveCart(Cart newCart)
+        {
+            return newCart.Location == ActiveConnection;
+        }
+
     }
 }

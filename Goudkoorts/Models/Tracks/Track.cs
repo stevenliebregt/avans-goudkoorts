@@ -25,7 +25,7 @@
             }
 
             //Crash if next tile is occupied
-            if (Next.IsOccupied)
+            if (Next.IsOccupied && Next.CanReceiveCart(Occupant))
             {
                 Occupant.Crashed = true;
                 return this;
@@ -43,6 +43,11 @@
         public virtual bool ReceiveCart(Cart newCart)
         {
             Occupant = newCart;
+            return true;
+        }
+
+        public virtual bool CanReceiveCart(Cart newCart)
+        {
             return true;
         }
     }
