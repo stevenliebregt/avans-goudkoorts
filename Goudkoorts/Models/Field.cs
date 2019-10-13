@@ -36,24 +36,25 @@ namespace Goudkoorts.Models
 
         public bool MoveCarts()
         {
-            // Only has the carts that still need to be moved this round
+            // Queue of carts that need to be moved
             var movableCarts = new List<Cart>(Carts);
 
             while (movableCarts.Count > 0)
             {
                 var cart = movableCarts.First();
-                var nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved
+                movableCarts.Remove(cart);
 
-                // overwrites with next cart that needs to be tried first
-                if (nextCart != null && movableCarts.Contains(nextCart))
-                    cart = nextCart;
+                var nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved first
+                if (nextCart != null && movableCarts.Contains(nextCart)) // Checks if next cart is still in queue and thus needs to be moved first
+                {
+                    movableCarts.Add(cart); // Adds cart at end of queue for later moving
+                    continue;
+                }
 
                 cart.Move();
                 
                 if (cart.Retired) Carts.Remove(cart); // Remove moved cart if it is finished
                 if (cart.Crashed) return false; // Stop if the moved cart crashed
-
-                movableCarts.Remove(cart); // Remove cart that actually has been moved
             }
             return true;
         }
