@@ -92,7 +92,7 @@ namespace Goudkoorts.Models
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 1, 7);
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 1, 8);
 
-            Quay = (QuayTrack)AddToTiles(new QuayTrack(Orientation.LEFT_RIGHT, currentTrack), 1, 9);
+            Quay = (QuayTrack)AddToTiles(new QuayTrack(Orientation.LEFT_RIGHT, (WaterTile) ShipSpawnTile, currentTrack), 1, 9);
             currentTrack = Quay;
 
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 1, 10);

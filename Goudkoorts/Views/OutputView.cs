@@ -101,6 +101,11 @@ namespace Goudkoorts.Views
                 {
                     return 'K';
                 }
+
+                if (track is ShuntTrack)
+                {
+                    return '_';
+                }
                 
                 switch (track.Orientation)
                 {

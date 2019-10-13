@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Goudkoorts.Models
 {
-    class WaterTile : Tile
+    public class WaterTile : Tile
     {
     }
 }

@@ -2,9 +2,21 @@
 {
     public class QuayTrack : Track
     {
-        public QuayTrack(Orientation orientation, Track next = null) : base(orientation, next)
+        private WaterTile _shipSpawnTile;
+        
+        public QuayTrack(Orientation orientation, WaterTile shipSpawnTile, Track next = null) : base(orientation, next)
         {
+            _shipSpawnTile = shipSpawnTile;
+        }
+
+        public override Track MoveCart()
+        {
+            if (_shipSpawnTile.Placable == null || !(_shipSpawnTile.Placable is Ship ship)) return base.MoveCart();
             
+            ship.FreeSpaces--;
+            Occupant.Empty = true;
+
+            return base.MoveCart();
         }
     }
 }
