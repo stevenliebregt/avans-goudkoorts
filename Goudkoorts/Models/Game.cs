@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Goudkoorts.Models.Events;
 
@@ -95,10 +94,10 @@ namespace Goudkoorts.Models
 
         private void MoveCarts()
         {
-            if (!Field.MoveCarts())
-            {
-                _isOver = true;
-            }
+            if (Field.MoveCarts()) return;
+            
+            Logger.Log(new CartCrashedEvent());
+            _isOver = true;
         }
 
         private void SpawnCart()

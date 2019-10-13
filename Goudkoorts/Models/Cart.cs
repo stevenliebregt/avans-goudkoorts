@@ -1,4 +1,6 @@
-﻿namespace Goudkoorts.Models
+﻿using Goudkoorts.Models.Tracks;
+
+namespace Goudkoorts.Models
 {
     public class Cart
     {

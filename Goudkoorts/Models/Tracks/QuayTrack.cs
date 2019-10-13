@@ -1,4 +1,4 @@
-﻿namespace Goudkoorts.Models
+﻿namespace Goudkoorts.Models.Tracks
 {
     public class QuayTrack : Track
     {

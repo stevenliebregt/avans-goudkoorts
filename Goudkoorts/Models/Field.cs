@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Goudkoorts.Models.Tracks;
 
 namespace Goudkoorts.Models
 {
@@ -36,12 +37,12 @@ namespace Goudkoorts.Models
         public bool MoveCarts()
         {
             // Only has the carts that still need to be moved this round
-            List<Cart> movableCarts = new List<Cart>(Carts);
+            var movableCarts = new List<Cart>(Carts);
 
             while (movableCarts.Count > 0)
             {
-                Cart cart = movableCarts.First();
-                Cart nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved
+                var cart = movableCarts.First();
+                var nextCart = cart.Location.Next?.Occupant; // Potential next cart that might need to be moved
 
                 // overwrites with next cart that needs to be tried first
                 if (nextCart != null && movableCarts.Contains(nextCart))
