@@ -29,14 +29,14 @@ namespace Goudkoorts.Models
         public EventLogger Logger { get; } = new EventLogger(5);
         public Field Field { get; }
 
-        public int Score { get; private set; } = 0;
+        public int Score { get; set; } = 0;
         
         public Game(int intervalMilliseconds)
         {
             _intervalMilliseconds = intervalMilliseconds < MinimumIntervalMilliSeconds ? DefaultIntervalMilliseconds : intervalMilliseconds;
 
             _random = new Random();
-            Field = new Field();
+            Field = new Field(this);
         }
         
         public void RegisterGameTickObserver(Action<Game> gameTickObserver)
@@ -107,8 +107,7 @@ namespace Goudkoorts.Models
 
         private void SpawnShip()
         {
-            Field.Ship = new Ship();
-            
+            Field.SpawnShip();
             Logger.Log(new ShipArrivedEvent());
         }
 

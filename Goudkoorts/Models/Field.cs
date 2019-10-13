@@ -19,6 +19,7 @@ namespace Goudkoorts.Models
         public QuayTrack Quay;
 
         private Tile ShipSpawnTile => Tiles[0,9];
+        private Game _game;
 
         public Ship Ship
         {
@@ -26,12 +27,12 @@ namespace Goudkoorts.Models
             set => ShipSpawnTile.Placable = value;
         }
 
-        public Field()
+        public Field(Game game)
         {
+            _game = game;
             GenerateTiles();
             InitializeField();
-            
-            Ship = new Ship();
+            SpawnShip();
         }
 
         public bool MoveCarts()
@@ -183,6 +184,11 @@ namespace Goudkoorts.Models
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 2);
             currentTrack = (Track)AddToTiles(new Track(Orientation.LEFT_RIGHT, currentTrack), 7, 1);
             Warehouses['C'].StartTrack = currentTrack;
+        }
+
+        public void SpawnShip()
+        {
+            Ship = new Ship(_game);
         }
 
         private void GenerateTiles()

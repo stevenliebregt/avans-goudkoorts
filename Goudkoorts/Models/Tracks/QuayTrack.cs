@@ -12,8 +12,8 @@
         public override Track MoveCart()
         {
             if (_shipSpawnTile.Placable == null || !(_shipSpawnTile.Placable is Ship ship)) return base.MoveCart();
-            
-            ship.FreeSpaces--;
+
+            ship.AddCargo();
             Occupant.Empty = true;
 
             return base.MoveCart();
