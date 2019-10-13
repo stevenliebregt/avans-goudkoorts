@@ -19,7 +19,7 @@ namespace Goudkoorts.Models
         public QuayTrack Quay;
 
         private Tile ShipSpawnTile => Tiles[0,9];
-        private Game _game;
+        private readonly Game _game;
 
         public Ship Ship
         {

@@ -5,7 +5,7 @@
         public int FreeSpaces { get; set; } = 8;
 
         public bool Full => FreeSpaces == 0;
-        private Game _game;
+        private readonly Game _game;
 
         public Ship(Game game)
         {

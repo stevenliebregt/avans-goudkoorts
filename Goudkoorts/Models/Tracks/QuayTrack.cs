@@ -2,7 +2,7 @@
 {
     public class QuayTrack : Track
     {
-        private WaterTile _shipSpawnTile;
+        private readonly WaterTile _shipSpawnTile;
         
         public QuayTrack(Orientation orientation, WaterTile shipSpawnTile, Track next = null) : base(orientation, next)
         {
