@@ -40,8 +40,6 @@ namespace Goudkoorts.Controllers
             _game.Run(); // This runs, blocking, until the game is over.
 
             _outputView.DrawGameOver(_game.Score);
-
-            // TODO: Ask "play again?"
         }
     }
 }

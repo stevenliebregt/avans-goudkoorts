@@ -10,7 +10,7 @@ namespace Goudkoorts.Models
         private const int MinimumIntervalMilliSeconds = 100;
         private const int DefaultIntervalMilliseconds = 1000;
 
-        private const int CartSpawnChancePercentage = 10;
+        private const int CartSpawnChancePercentage = 15;
         private const int ShipSpawnChancePercentage = 40;
         
         private int _intervalMilliseconds;
@@ -46,6 +46,8 @@ namespace Goudkoorts.Models
 
         public void SwitchTrack(int trackId)
         {
+            // TODO: Can be disabled
+            
             if (!Field.SwitchTracks.ContainsKey(trackId)) return;
 
             Field.SwitchTracks[trackId].Switch();
