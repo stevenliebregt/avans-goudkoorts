@@ -13,7 +13,7 @@ namespace Goudkoorts.Models
         private const int CartSpawnChancePercentage = 10;
         private const int ShipSpawnChancePercentage = 40;
         
-        private readonly int _intervalMilliseconds;
+        private int _intervalMilliseconds;
 
         private readonly List<Action<Game>> _gameTickObservers = new List<Action<Game>>();
         
@@ -50,6 +50,8 @@ namespace Goudkoorts.Models
 
             Field.SwitchTracks[trackId].Switch();
             Logger.Log(new TrackSwitchEvent(trackId));
+            
+            NotifyObservers();
         }
         
         public void Run()
@@ -84,6 +86,8 @@ namespace Goudkoorts.Models
             NotifyObservers();
 
             _shipSpawnCooldown = false; // Remove cooldown at end of turn.
+
+            RedefineDifficulty();
             
             if (!_isOver) return;
             
@@ -118,6 +122,16 @@ namespace Goudkoorts.Models
             Logger.Log(new ShipLeftEvent());
 
             _shipSpawnCooldown = true;
+        }
+
+        private void RedefineDifficulty()
+        {
+            var newInterval = 1000 - (Score * 10); // *10 because otherwise it is really slow to speed up.
+
+            if (newInterval == _intervalMilliseconds || newInterval < MinimumIntervalMilliSeconds) return;
+
+            _timer.Change(0, newInterval);
+            _intervalMilliseconds = newInterval;
         }
         
         private void NotifyObservers()

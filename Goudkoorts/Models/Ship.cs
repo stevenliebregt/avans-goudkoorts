@@ -2,9 +2,10 @@
 {
     public class Ship : TilePlacable
     {
-        public int FreeSpaces { get; set; } = 8;
+        private int _freeSpaces = 8;
 
-        public bool Full => FreeSpaces == 0;
+        public bool Full => _freeSpaces == 0;
+        
         private readonly Game _game;
 
         public Ship(Game game)
@@ -14,8 +15,8 @@
 
         public void AddCargo()
         {
-            FreeSpaces--;
-            _game.Score += 2;
+            _freeSpaces--;
+            _game.Score += 1;
         }
     }
 }

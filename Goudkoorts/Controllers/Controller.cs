@@ -22,7 +22,7 @@ namespace Goudkoorts.Controllers
         public void Start()
         {
             _outputView.DrawMenu();
-            // TODO: Ask "press to start"
+            _inputView.PressAnyKeyToStart();
 
             _game = new Game(_intervalMilliseconds);
 

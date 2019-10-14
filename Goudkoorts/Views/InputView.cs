@@ -4,6 +4,11 @@ namespace Goudkoorts.Views
 {
     public class InputView
     {
+        public void PressAnyKeyToStart()
+        {
+            Console.ReadKey();
+        }
+        
         /// <summary>
         /// Connect the user input for switching tracks.
         /// </summary>
