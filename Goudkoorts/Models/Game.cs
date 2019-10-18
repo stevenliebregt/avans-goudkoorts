@@ -25,7 +25,7 @@ namespace Goudkoorts.Models
         private bool _isOver = false;
 
         private bool _shipSpawnCooldown = false;
-        
+
         public EventLogger Logger { get; } = new EventLogger(5);
         public Field Field { get; }
 
